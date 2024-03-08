@@ -17,5 +17,4 @@ public class AuthResponseModel {
     private String lastName;
     private String role;
     private String address;
-
 }
