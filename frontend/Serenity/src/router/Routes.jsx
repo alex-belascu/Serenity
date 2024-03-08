@@ -1,7 +1,5 @@
-import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Homepage from '../pages/Homepage';
-
+import Homepage from '../pages/Homepage/Homepage';
 const router = createBrowserRouter([{ path: '', Component: Homepage }]);
 
 const Routes = () => {
