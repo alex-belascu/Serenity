@@ -84,6 +84,24 @@ h1 {
   border-radius: 50px;
 }
 
+.signup-card {
+  display: flex !important;
+  gap: 10px;
+  width: 300px;
+}
+
+.name {
+  margin-bottom: 12px;
+}
+
+.email {
+  margin-bottom: 12px;
+}
+
+.password {
+  margin-bottom: 12px;
+}
+
 .fade-in {
   animation: fadeIn 1.2s ease-in;
 }
@@ -110,17 +128,14 @@ h1 {
   }
 }
 
-
 @media only screen and (max-width: 600px) {
-  h1{
+  h1 {
     font-size: 60px;
   }
 
-  .logo{
+  .logo {
     width: 60px;
     height: 60px;
     object-fit: cover;
   }
-
-
 }
