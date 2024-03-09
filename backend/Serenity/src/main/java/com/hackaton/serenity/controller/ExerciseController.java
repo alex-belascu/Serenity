@@ -4,20 +4,21 @@ import com.hackaton.serenity.model.ExerciseDataAddRequestModel;
 import com.hackaton.serenity.service.ExerciseDataService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/exercise")
 @RequiredArgsConstructor
 public class ExerciseController {
     private final ExerciseDataService service;
 
-    @PostMapping("/add")
+    @PostMapping(path = "/addExerciseDataPerUser")
     public ResponseEntity<?> addExerciseData(@RequestBody ExerciseDataAddRequestModel exerciseData){
         return ResponseEntity.ok(service.saveExerciseData(exerciseData));
     }
 
+    @GetMapping(path = "/getExerciseDataPerUser")
+    public ResponseEntity<?> getExerciseData(@RequestParam String email){
+        return ResponseEntity.ok(service.getExerciseData(email));
+    }
 }
