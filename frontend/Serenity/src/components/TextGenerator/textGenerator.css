@@ -1,0 +1,26 @@
+/* RandomTextGenerator.css */
+.random-text-container {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.random-text {
+  font-size: 36px;
+  color: #333;
+  transition: opacity 0.5s ease;
+  font-weight: bold;
+}
+
+.random-text:hover {
+  opacity: 0.7;
+}
+
+.text {
+  font-size: 36px;
+}

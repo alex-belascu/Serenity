@@ -1,0 +1,36 @@
+/* BreathingExercise.css */
+.breathing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.breathing-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #42a5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.breathing-circle.inhale {
+  transform: scale(1.2);
+}
+
+.breathing-circle.hold {
+  background-color: #66bb6a;
+}
+
+.breathing-circle.exhale {
+  transform: scale(0.8);
+}
+
+.breathing-text {
+  font-size: 24px;
+  color: white;
+}

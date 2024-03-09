@@ -1,40 +1,19 @@
-import React from 'react';
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Routes,
-  Route,
-} from 'react-router-dom';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
-
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Homepage from '../pages/Homepage/Homepage';
 import AppPage from '../pages/AppPage/AppPage';
-import '../index.css';
+import ExercisePage from '../pages/ExercisePage/ExercisePage';
 const router = createBrowserRouter([
   { path: '', Component: Homepage },
   { path: '/app', Component: AppPage },
+  { path: '/exercise', Component: ExercisePage },
 ]);
 
-const AnimatedRoutes = () => {
+const Routes = () => {
   return (
-    <RouterProvider router={router}>
-      <Routes>
-        <Route
-          path="/*"
-          element={
-            <TransitionGroup>
-              <CSSTransition classNames="roomtotop" timeout={300}>
-                <Routes>
-                  <Route path="/" element={<Homepage />} />
-                  <Route path="/app" element={<AppPage />} />
-                </Routes>
-              </CSSTransition>
-            </TransitionGroup>
-          }
-        />
-      </Routes>
-    </RouterProvider>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 };
 
-export default AnimatedRoutes;
+export default Routes;

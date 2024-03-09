@@ -1,9 +1,9 @@
-import "./homepage.css";
-import React from "react";
+import './homepage.css';
+import React from 'react';
 
-import RegisterForm from "../../components/RegisterForm/RegisterForm";
-import LoginForm from "../../components/LoginForm/LoginForm";
-import { Button } from "@radix-ui/themes";
+import RegisterForm from '../../components/RegisterForm/RegisterForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
+import { Button } from '@radix-ui/themes';
 
 const Homepage = () => {
   const [isLoginExpanded, setLoginExpanded] = React.useState(false);
@@ -33,7 +33,7 @@ const Homepage = () => {
           <div className="buttons">
             <Button
               color="teal"
-              size={"3"}
+              size={'3'}
               onClick={(e) => {
                 setRegisterExpanded(!isRegisterExpanded);
                 setButtonExpanded(!isButtonExpanded);
@@ -45,7 +45,7 @@ const Homepage = () => {
             <Button
               color="teal"
               variant="surface"
-              size={"3"}
+              size={'3'}
               onClick={() => {
                 setLoginExpanded(!isLoginExpanded);
                 setButtonExpanded(!isButtonExpanded);

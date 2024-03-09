@@ -1,8 +1,14 @@
 import React from 'react';
 import './AppPage.css';
 import { Text, Card, Inset } from '@radix-ui/themes';
+import { useNavigate } from 'react-router-dom';
 
 function AppPage() {
+  const navigate = useNavigate();
+
+  const navigateToExercise = () => {
+    navigate('/exercise');
+  };
   return (
     <div className="app-container">
       <div className="header-wrapper-app">
@@ -24,6 +30,7 @@ function AppPage() {
                   height: 160,
                   objectPosition: 'center',
                 }}
+                onClick={navigateToExercise}
               />
             </Inset>
             <Text as="p" size="3">
