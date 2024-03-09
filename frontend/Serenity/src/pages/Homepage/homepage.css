@@ -139,3 +139,9 @@ h1 {
     object-fit: cover;
   }
 }
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}

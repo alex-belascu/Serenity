@@ -1,22 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { Button, TextField, Card, Callout } from "@radix-ui/themes";
+import { Button, TextField, Card } from "@radix-ui/themes";
 import { AnimatePresence, motion } from "framer-motion";
 
-const RegisterForm = ({
-  isExpanded,
-  setLoginExpanded,
-  setRegisterExpanded,
-}) => {
+const LoginForm = ({ isExpanded, setLoginExpanded, setRegisterExpanded }) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [passwordRetype, setPasswordRetype] = React.useState("");
-  const [name, setName] = React.useState("");
   const [errorMsg, setErrorMsg] = React.useState("");
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -26,28 +16,13 @@ const RegisterForm = ({
     setPassword(e.target.value);
   };
 
-  const handlePasswordRetypeChange = (e) => {
-    setPasswordRetype(e.target.value);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    console.log("Form submitted");
-    console.log("Name: " + name);
-    console.log("Email: " + email);
-    console.log("Password: " + password);
-    console.log("Password Retype: " + passwordRetype);
-    console.log("Passwords match: " + (password === passwordRetype));
-
-    if (password !== passwordRetype) {
-      setErrorMsg("Passwords do not match");
-    } else if (name === "") {
-      setErrorMsg("Please enter a name");
-    } else if (email === "") {
-      setErrorMsg("Please enter an email");
-    } else if (password === "") {
-      setErrorMsg("Please enter a password");
+    console.log("Email:", email);
+    console.log("Password:", password);
+    if (email === "" || password === "") {
+      setErrorMsg("Please fill in all fields");
     }
   };
 
@@ -76,15 +51,6 @@ const RegisterForm = ({
                   >
                     {errorMsg}
                   </p>
-                  <div className="name">
-                    <TextField.Input
-                      type="text"
-                      id="name"
-                      placeholder="Name"
-                      onChange={handleNameChange}
-                    />
-                  </div>
-
                   <div className="email">
                     <TextField.Input
                       type="email"
@@ -103,22 +69,13 @@ const RegisterForm = ({
                     />
                   </div>
 
-                  <div className="password">
-                    <TextField.Input
-                      placeholder="Retype Password"
-                      type="password"
-                      id="retype-password"
-                      onChange={handlePasswordRetypeChange}
-                    />
-                  </div>
-
                   <p>
-                    Already have an account? Login{" "}
+                    Don't have an account? Register{" "}
                     <span
                       style={{ color: "blue", cursor: "pointer" }}
                       onClick={() => {
-                        setLoginExpanded(true);
-                        setRegisterExpanded(false);
+                        setLoginExpanded(false);
+                        setRegisterExpanded(true);
                       }}
                     >
                       here.
@@ -131,7 +88,7 @@ const RegisterForm = ({
                     size={"3"}
                     style={{ marginTop: "10px" }}
                   >
-                    Sign Up
+                  Login
                   </Button>
                 </form>
               </Card>
@@ -164,4 +121,4 @@ const RegisterForm = ({
   );
 };
 
-export default RegisterForm;
+export default LoginForm;
