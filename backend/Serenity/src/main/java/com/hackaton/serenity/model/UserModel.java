@@ -25,7 +25,6 @@ public class UserModel implements UserDetails {
     private String email;
     private String password; //hashed
     private String name;
-    private String address;
 
     public String getUsername() {
         return email;

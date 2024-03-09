@@ -13,5 +13,4 @@ public class RegisterRequestModel {
     private String email;
     private String password;
     private String name;
-    private String address;
 }

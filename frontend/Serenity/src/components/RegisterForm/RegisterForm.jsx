@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import { Button, TextField, Card, Callout } from "@radix-ui/themes";
-import { AnimatePresence, motion } from "framer-motion";
-
+import React from 'react';
+import { Button, TextField, Card } from '@radix-ui/themes';
+import { AnimatePresence, motion } from 'framer-motion';
+import axios from 'axios';
 const RegisterForm = ({
   isExpanded,
   setLoginExpanded,
   setRegisterExpanded,
 }) => {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [passwordRetype, setPasswordRetype] = React.useState("");
-  const [name, setName] = React.useState("");
-  const [errorMsg, setErrorMsg] = React.useState("");
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [passwordRetype, setPasswordRetype] = React.useState('');
+  const [name, setName] = React.useState('');
+  const [errorMsg, setErrorMsg] = React.useState('');
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -33,21 +33,55 @@ const RegisterForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission
-    console.log("Form submitted");
-    console.log("Name: " + name);
-    console.log("Email: " + email);
-    console.log("Password: " + password);
-    console.log("Password Retype: " + passwordRetype);
-    console.log("Passwords match: " + (password === passwordRetype));
+    console.log('Form submitted');
+    console.log('Name: ' + name);
+    console.log('Email: ' + email);
+    console.log('Password: ' + password);
+    console.log('Password Retype: ' + passwordRetype);
+    console.log('Passwords match: ' + (password === passwordRetype));
 
     if (password !== passwordRetype) {
-      setErrorMsg("Passwords do not match");
-    } else if (name === "") {
-      setErrorMsg("Please enter a name");
-    } else if (email === "") {
-      setErrorMsg("Please enter an email");
-    } else if (password === "") {
-      setErrorMsg("Please enter a password");
+      setErrorMsg('Passwords do not match');
+    } else if (name === '') {
+      setErrorMsg('Please enter a name');
+    } else if (email === '') {
+      setErrorMsg('Please enter an email');
+    } else if (password === '') {
+      setErrorMsg('Please enter a password');
+    } else {
+      register();
+      setErrorMsg('');
+    }
+  };
+
+  const register = async () => {
+    if (password === passwordRetype) {
+      try {
+        const response = await axios.post(
+          'http://localhost:8080/users/register',
+          {
+            email: email,
+            name: name,
+            password: password,
+          },
+          {
+            headers: { 'Content-Type': 'application/json' },
+          }
+        );
+
+        if (response.data.statusCodeValue === 200) {
+          setErrorMsg('');
+          setRegisterExpanded(false);
+          setLoginExpanded(true);
+        } else {
+          setErrorMsg(response.data.body);
+        }
+        console.log('Registration successful:', response.data);
+        // Optionally, you can perform additional actions after successful registration
+      } catch (error) {
+        setErrorMsg(error.response.data.message);
+        console.error('Registration failed:', error);
+      }
     }
   };
 
@@ -60,7 +94,7 @@ const RegisterForm = ({
               className="card-content"
               layout
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
+              animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.5 }}
             >
@@ -68,10 +102,10 @@ const RegisterForm = ({
                 <form onSubmit={handleSubmit}>
                   <p
                     style={{
-                      color: "red",
-                      display: "flex",
-                      minHeight: "1.2rem",
-                      fontSize: ".8em",
+                      color: 'red',
+                      display: 'flex',
+                      minHeight: '1.2rem',
+                      fontSize: '.8em',
                     }}
                   >
                     {errorMsg}
@@ -113,9 +147,9 @@ const RegisterForm = ({
                   </div>
 
                   <p>
-                    Already have an account? Login{" "}
+                    Already have an account? Login{' '}
                     <span
-                      style={{ color: "blue", cursor: "pointer" }}
+                      style={{ color: 'teal', cursor: 'pointer' }}
                       onClick={() => {
                         setLoginExpanded(true);
                         setRegisterExpanded(false);
@@ -128,8 +162,8 @@ const RegisterForm = ({
                   <Button
                     type="submit"
                     color="teal"
-                    size={"3"}
-                    style={{ marginTop: "10px" }}
+                    size={'3'}
+                    style={{ marginTop: '10px' }}
                   >
                     Sign Up
                   </Button>
@@ -147,7 +181,7 @@ const RegisterForm = ({
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            style={{ visibility: "hidden" }}
+            style={{ visibility: 'hidden' }}
           ></motion.div>
         </AnimatePresence>
       ) : (

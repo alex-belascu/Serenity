@@ -28,7 +28,6 @@ public class AuthService {
         var user = UserModel.builder()
                 .email(request.getEmail())
                 .name(request.getName())
-                .address(request.getAddress())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .build();
 
@@ -55,7 +54,6 @@ public class AuthService {
                     .token(jwtToken)
                     .email(user.getEmail())
                     .name(user.getName())
-                    .address(user.getAddress())
                     .build());
         } catch(AuthenticationException e){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Authentication failed");

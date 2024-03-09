@@ -13,7 +13,6 @@ import java.util.Map;
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
-
 public class AuthController {
     private final AuthService service;
     @PostMapping("/register")
