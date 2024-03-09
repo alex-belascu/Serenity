@@ -62,3 +62,33 @@
 .app-card img:hover {
   transform: scale(1.1); /* Zoom effect on hover */
 }
+
+@media screen and (max-width: 768px) {
+  .header-app {
+    justify-content: center;
+    align-items: center;
+    font-size: 36px; /* Decrease font size for smaller screens */
+  }
+  
+  .app-cards-wrapper {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Change to column layout for smaller screens */
+    max-width: 100%;
+    gap: 15px; /* Decrease gap between cards */
+  }
+  
+  .app-card img {
+    display: flex;
+    max-height: 10vh; /* Ensure images don't exceed container width */
+    min-width: 190px;
+  }
+
+  .app-card {
+    display: flex;
+    height: 15vh;
+    text-align: center;
+  }
+
+
+}
