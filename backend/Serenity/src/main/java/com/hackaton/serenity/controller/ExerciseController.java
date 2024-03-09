@@ -14,11 +14,20 @@ public class ExerciseController {
 
     @PostMapping(path = "/addExerciseDataPerUser")
     public ResponseEntity<?> addExerciseData(@RequestBody ExerciseDataAddRequestModel exerciseData){
+        var email = exerciseData.getEmail();
+        if (email == null)
+            return ResponseEntity.badRequest().build();
+        if (email.isEmpty())
+            return ResponseEntity.badRequest().build();
         return ResponseEntity.ok(service.saveExerciseData(exerciseData));
     }
 
     @GetMapping(path = "/getExerciseDataPerUser")
     public ResponseEntity<?> getExerciseData(@RequestParam String email){
+        if (email == null)
+            return ResponseEntity.badRequest().build();
+        if (email.isEmpty())
+            return ResponseEntity.badRequest().build();
         return ResponseEntity.ok(service.getExerciseData(email));
     }
 }

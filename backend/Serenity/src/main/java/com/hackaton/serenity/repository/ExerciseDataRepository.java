@@ -9,6 +9,5 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface ExerciseDataRepository extends JpaRepository<ExerciseDataModel, Long> {
-
     List<ExerciseDataModel> findByEmail(String email);
 }

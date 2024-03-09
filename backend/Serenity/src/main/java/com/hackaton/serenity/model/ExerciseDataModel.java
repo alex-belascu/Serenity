@@ -17,6 +17,8 @@ public class ExerciseDataModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int seconds;
+    private int stressTrackCount;
+    private int averageStressLevel;
     private LocalDate date;
     private String email;
 

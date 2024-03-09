@@ -35,6 +35,5 @@ public class JournalController {
         }
 
         return ResponseEntity.badRequest().build();
-
     }
 }

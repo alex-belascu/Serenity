@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class ExerciseDataAddRequestModel {
     private int seconds;
+    private int stressLevel;
     private LocalDate date;
     private String email;
 }

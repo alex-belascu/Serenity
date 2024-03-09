@@ -24,6 +24,7 @@ public class ExerciseDataService {
         var seconds = exerciseData.getSeconds();
         var date = exerciseData.getDate();
         var email = exerciseData.getEmail();
+        var stressLevel = exerciseData.getStressLevel();
 
         List<ExerciseDataModel> existingDataList = exerciseDataRepository
                 .findByEmail(email)
@@ -35,7 +36,9 @@ public class ExerciseDataService {
             ExerciseDataModel dataToSave = ExerciseDataModel.builder()
                     .seconds(exerciseData.getSeconds())
                     .date(exerciseData.getDate())
-                    .email(email).build();
+                    .email(email)
+                    .stressTrackCount(1)
+                    .averageStressLevel(stressLevel).build();
 
             exerciseDataRepository.save(dataToSave);
             return ResponseEntity.ok(dataToSave);
@@ -43,7 +46,12 @@ public class ExerciseDataService {
 
         ExerciseDataModel existingDataToUpdate = existingDataList.get(0);
         int existingTime = existingDataToUpdate.getSeconds();
+        int existingStressTrackCount = existingDataToUpdate.getStressTrackCount();
+        int existingAverageStressLevel = existingDataToUpdate.getAverageStressLevel();
         existingDataToUpdate.setSeconds(existingTime + seconds);
+        existingDataToUpdate.setStressTrackCount(existingStressTrackCount + 1);
+        existingDataToUpdate.setAverageStressLevel(
+                (existingAverageStressLevel * existingStressTrackCount + stressLevel) / (existingStressTrackCount + 1));
 
         exerciseDataRepository.save(existingDataToUpdate);
         return ResponseEntity.ok(existingDataToUpdate);
