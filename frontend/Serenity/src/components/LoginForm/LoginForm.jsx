@@ -47,7 +47,13 @@ const LoginForm = ({ isExpanded, setLoginExpanded, setRegisterExpanded }) => {
       );
 
       console.log('Login successful:', response.data);
-      navigateToApp();
+
+      if (response.data.statusCodeValue === 200) {
+        navigateToApp();
+      } else {
+        setErrorMsg('Authentication failed');
+      }
+
       // Optionally, you can perform additional actions after successful registration
     } catch (error) {
       setErrorMsg(error.response.data.message);

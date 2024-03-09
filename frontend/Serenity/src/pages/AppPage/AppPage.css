@@ -1,0 +1,64 @@
+.app-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(src/assets/app-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-wrapper-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-direction: row;
+}
+
+.logo-app {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.header-app {
+  display: flex;
+  color: #fff;
+  font-size: 60px;
+}
+
+.app-cards-wrapper {
+  display: flex;
+  gap: 20px; /* Adjust the gap between cards */
+  max-width: 100%;
+  margin-top: 20px; /* Add margin at the top */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Flexbox styles for the last two items */
+
+.app-cards-wrapper > :nth-last-child(-n + 2) {
+  flex-grow: 1;
+}
+
+.app-card {
+  display: flex;
+}
+
+.app-card img {
+  transition: transform 0.3s ease; /* Smooth transition effect */
+  cursor: pointer;
+}
+
+.app-card img:hover {
+  transform: scale(1.1); /* Zoom effect on hover */
+}
