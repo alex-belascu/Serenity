@@ -23,11 +23,10 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth.requestMatchers("/auth", "/users/auth", "/users", "/users/*"
-                                , "/users/register", "/register" )
+                                , "/users/register", "/register", "/journals/*" )
                         .permitAll()
                         .anyRequest()
                         .authenticated()
-
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)

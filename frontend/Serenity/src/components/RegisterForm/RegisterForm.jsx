@@ -32,13 +32,12 @@ const RegisterForm = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted');
-    console.log('Name: ' + name);
-    console.log('Email: ' + email);
-    console.log('Password: ' + password);
-    console.log('Password Retype: ' + passwordRetype);
-    console.log('Passwords match: ' + (password === passwordRetype));
+    console.log("Form submitted");
+    console.log("Name: " + name);
+    console.log("Email: " + email);
+    console.log("Password: " + password);
+    console.log("Password Retype: " + passwordRetype);
+    console.log("Passwords match: " + (password === passwordRetype));
 
     if (password !== passwordRetype) {
       setErrorMsg('Passwords do not match');

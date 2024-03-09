@@ -1,5 +1,7 @@
 package com.hackaton.serenity.service;
 import com.hackaton.serenity.exception.TokenExpiredException;
+import com.hackaton.serenity.model.UserModel;
+import com.hackaton.serenity.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -7,6 +9,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +18,7 @@ import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Function;
 
 @Service
@@ -57,7 +62,7 @@ public class JwtService {
     }
 
     private Claims extractAllClaims(String token){
-        try{
+        try {
             return Jwts
                     .parserBuilder()
                     .setSigningKey(getSignInKey())
