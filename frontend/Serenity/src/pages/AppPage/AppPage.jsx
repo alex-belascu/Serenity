@@ -2,7 +2,7 @@ import React from 'react';
 import './AppPage.css';
 import { Text, Card, Inset } from '@radix-ui/themes';
 import { useNavigate } from 'react-router-dom';
-import { Button } from "@radix-ui/themes";
+import { Button, Dialog, Table, Flex } from "@radix-ui/themes";
 
 function AppPage() {
     
@@ -17,6 +17,9 @@ function AppPage() {
     };
 
   return (
+    <Dialog.Root>
+
+
     <div className="app-container">
       <div className="header-wrapper-app">
         <h1 className="header-app">Serenity</h1>
@@ -89,6 +92,7 @@ function AppPage() {
         <div className="app-card">
           <Card variant="classic">
             <Inset clip="padding-box" side="top" pb="current">
+              <Dialog.Trigger>
               <img
                 src="https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Bold typography"
@@ -99,6 +103,8 @@ function AppPage() {
                   height: 160,
                 }}
               />
+              </Dialog.Trigger>
+
             </Inset>
             <Text as="p" size="3">
               View Previous Journals
@@ -132,6 +138,51 @@ function AppPage() {
         </Button>
       </div>
     </div>
+
+    <Dialog.Content>
+      <Dialog.Title>Your Journals</Dialog.Title>
+      <Table.Root>
+  <Table.Header>
+    <Table.Row>
+      <Table.ColumnHeaderCell>Title</Table.ColumnHeaderCell>
+      <Table.ColumnHeaderCell>Date</Table.ColumnHeaderCell>
+      <Table.ColumnHeaderCell>Actions</Table.ColumnHeaderCell>
+    </Table.Row>
+  </Table.Header>
+
+  <Table.Body>
+    <Table.Row>
+      <Table.RowHeaderCell>Danilo Sousa</Table.RowHeaderCell>
+      <Table.Cell>danilo@example.com</Table.Cell>
+      <Table.Cell>Developer</Table.Cell>
+    </Table.Row>
+
+    <Table.Row>
+      <Table.RowHeaderCell>Zahra Ambessa</Table.RowHeaderCell>
+      <Table.Cell>zahra@example.com</Table.Cell>
+      <Table.Cell>Admin</Table.Cell>
+    </Table.Row>
+
+    <Table.Row>
+      <Table.RowHeaderCell>Jasper Eriksson</Table.RowHeaderCell>
+      <Table.Cell>jasper@example.com</Table.Cell>
+      <Table.Cell>Developer</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table.Root>
+  <Flex gap="3" mt="4" justify="end">
+        <Dialog.Close>
+          <Button variant="soft" color="red">
+            Cancel
+          </Button>
+        </Dialog.Close>
+        <Dialog.Close>
+          <Button color='teal'>
+            Save</Button>
+        </Dialog.Close>
+  </Flex>
+    </Dialog.Content>
+    </Dialog.Root>
   );
 }
 

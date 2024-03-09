@@ -26,7 +26,7 @@ const ExercisePage = () => {
         GO BACK
       </Button>
       <video
-        style={{ width: '100%', objectFit: 'cover', overflow: 'hidden' }}
+        style={{ width: '100%', height: '100vh' , objectFit: 'cover', overflow: 'hidden' }}
         autoPlay
         loop
         muted
