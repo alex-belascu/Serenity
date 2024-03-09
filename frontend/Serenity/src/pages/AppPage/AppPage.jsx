@@ -2,13 +2,20 @@ import React from 'react';
 import './AppPage.css';
 import { Text, Card, Inset } from '@radix-ui/themes';
 import { useNavigate } from 'react-router-dom';
+import { Button } from "@radix-ui/themes";
 
 function AppPage() {
+    
   const navigate = useNavigate();
+    
+  const navigateToHomepage = () => {
+      navigate('/');
+    };
 
   const navigateToExercise = () => {
-    navigate('/exercise');
-  };
+      navigate('/exercise');
+    };
+
   return (
     <div className="app-container">
       <div className="header-wrapper-app">
@@ -118,6 +125,11 @@ function AppPage() {
             </Text>
           </Card>
         </div>
+      </div>
+      <div className="logout">
+       <Button color="teal" size={"3"} onClick={navigateToHomepage}>
+          Log out
+        </Button>
       </div>
     </div>
   );
