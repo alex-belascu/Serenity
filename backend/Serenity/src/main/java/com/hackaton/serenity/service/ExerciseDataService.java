@@ -19,13 +19,10 @@ public class ExerciseDataService {
     public ResponseEntity<?> saveExerciseData(ExerciseDataAddRequestModel exerciseData) {
         var seconds = exerciseData.getSeconds();
         var date = exerciseData.getDate();
-        var userId = exerciseData.getUserId();
-
-        UserModel emptyUser = UserModel.builder()
-                .id(userId).build();
+        var email = exerciseData.getEmail();
 
         List<ExerciseDataModel> existingDataList = exerciseDataRepository
-                .findByUser(exerciseData.getUserId())
+                .findByEmail(email)
                 .stream().filter(data -> {
                    return data.getDate().equals(exerciseData.getDate());
                 }).toList();
@@ -34,7 +31,7 @@ public class ExerciseDataService {
             ExerciseDataModel dataToSave = ExerciseDataModel.builder()
                     .seconds(exerciseData.getSeconds())
                     .date(exerciseData.getDate())
-                    .user(emptyUser).build();
+                    .email(email).build();
 
             exerciseDataRepository.save(dataToSave);
             return ResponseEntity.ok(dataToSave);

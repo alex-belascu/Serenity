@@ -14,5 +14,5 @@ import java.time.LocalDate;
 public class ExerciseDataAddRequestModel {
     private int seconds;
     private LocalDate date;
-    private Long userId;
+    private String email;
 }

@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface ExerciseDataRepository extends JpaRepository<ExerciseDataModel, Long> {
-    @Query("SELECT e FROM ExerciseDataModel e WHERE e.user.id = ?1")
-    List<ExerciseDataModel> findByUser(Long id);
+
+    List<ExerciseDataModel> findByEmail(String email);
 }
