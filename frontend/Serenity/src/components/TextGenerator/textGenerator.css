@@ -13,7 +13,6 @@
 .random-text {
   font-size: 36px;
   color: #333;
-  transition: opacity 0.5s ease;
   font-weight: bold;
 }
 
@@ -21,6 +20,24 @@
   opacity: 0.7;
 }
 
+.random-text-container .random-text {
+  opacity: 1;
+  transition: fade-in-out 4s ease; /* Add transition for fade-in and fade-out */
+}
+
+/* Animation */
+@keyframes fade-in-out {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 .text {
   font-size: 36px;
+  opacity: 0;
+  animation: fade-in-out 4s forwards infinite; /* Adjust animation duration as needed */
 }

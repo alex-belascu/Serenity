@@ -3,15 +3,23 @@ import video from '../../assets/video.mp4';
 import LottieAnimation from '../../components/LottieAnimation/LottieAnimation';
 import RandomTextGenerator from '../../components/TextGenerator/TextGenerator';
 import { Button } from '@radix-ui/themes';
+import { useNavigate } from 'react-router-dom';
 
-function ExercisePage() {
+const ExercisePage = () => {
+  const navigate = useNavigate();
+  const navigateToApp = () => {
+    navigate('/app');
+  };
+
   return (
     <div className="exercise-page">
       <Button
+        onClick={navigateToApp}
         style={{
           position: 'absolute',
           left: 20,
           top: 10,
+          zIndex: 20,
         }}
         color="teal"
       >
@@ -29,12 +37,8 @@ function ExercisePage() {
         <RandomTextGenerator />
         <LottieAnimation />
       </div>
-
-      <div className="navigatebtn">
-        <Button>Go Back</Button>
-      </div>
     </div>
   );
-}
+};
 
 export default ExercisePage;
