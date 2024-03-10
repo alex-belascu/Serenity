@@ -104,14 +104,14 @@ function AppPage() {
                         chartType="LineChart"
                         loader={<div>Loading Chart</div>}
                         data={[
-                            ['Year', 'Sales', 'Expenses'],
-                            ['2013', 1000, 400],
-                            ['2014', 1170, 460],
-                            ['2015', 660, 1120],
-                            ['2016', 1030, 540],
+                            ['Date', 'Average Level'],
+                            ['Day 1', 6],
+                            ['Day 2', 8],
+                            ['Day 3', 4.5],
+                            ['Day 4', 7],
                         ]}
                         options={{
-                            title: 'Company Performance',
+                            title: 'Stress Level',
                             curveType: 'function',
                             legend: { position: 'bottom' },
                         }}
@@ -128,14 +128,14 @@ function AppPage() {
                         chartType="LineChart"
                         loader={<div>Loading Chart</div>}
                         data={[
-                            ['Year', 'Sales', 'Expenses'],
-                            ['2013', 1000, 400],
-                            ['2014', 1170, 460],
-                            ['2015', 660, 1120],
-                            ['2016', 1030, 540],
+                            ['Date', 'Average Time'],
+                            ['Day 1', 70],
+                            ['Day 2', 40],
+                            ['Day 3', 200],
+                            ['Day 4', 80],
                         ]}
                         options={{
-                            title: 'Company Performance',
+                            title: 'Time Spent',
                             curveType: 'function',
                             legend: { position: 'bottom' },
                         }}
