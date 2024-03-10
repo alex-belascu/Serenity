@@ -27,11 +27,17 @@ const LottieAnimation = ({
   };
 
   const postExerciseData = async (seconds) => {
-    await axios.post('http://localhost:8080/exercise/addExerciseDataPerUser', {
-      email: email,
-      stressLevel: stresslevel,
-      seconds: seconds,
-    });
+    await axios.post(
+      'http://localhost:8080/exercise/addExerciseDataPerUser',
+      {
+        email: email,
+        stressLevel: stresslevel,
+        seconds: seconds,
+      },
+      {
+        headers: { 'Content-Type': 'application/json' },
+      }
+    );
   };
 
   useEffect(() => {

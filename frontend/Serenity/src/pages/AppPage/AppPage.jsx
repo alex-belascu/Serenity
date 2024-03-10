@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React, { useState } from 'react';
 import './AppPage.css';
 import { Text, Card, Inset } from '@radix-ui/themes';
@@ -15,6 +16,7 @@ import '../../components/JournalView/journalview.css';
 function AppPage() {
   const [showChart, setShowChart] = useState(false);
   const [allJournals, setAllJournals] = useState([]);
+  const [statistics, setStatistics] = useState([]);
   const navigate = useNavigate();
   const email = localStorage.getItem('email');
 
@@ -52,6 +54,28 @@ function AppPage() {
     }
   };
 
+  const getAllStatistics = async () => {
+    try {
+      const response = await axios.get(
+        'http://localhost:8080/exercise/getExerciseDataPerUser',
+        {
+          // Add data to send in the POST request body
+          params: {
+            email: email,
+          },
+        },
+        {
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+
+      console.log(response.data); // Log response data if needed
+      setStatistics(response.data.body);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleSaveJournal = () => {
     getAllJournals();
   };
@@ -85,6 +109,10 @@ function AppPage() {
 
   React.useEffect(() => {
     getAllJournals();
+  }, []);
+
+  React.useEffect(() => {
+    getAllStatistics();
   }, []);
 
   return (
