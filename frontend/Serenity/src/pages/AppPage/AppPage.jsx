@@ -170,7 +170,7 @@ function AppPage() {
             </Card>
           </div>
           <Dialog.Content>
-            <Dialog.Title>New entry in journal...</Dialog.Title>
+            <Dialog.Title>New Journal Entry</Dialog.Title>
 
             <JournalEntry />
 

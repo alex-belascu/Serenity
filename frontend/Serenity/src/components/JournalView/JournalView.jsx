@@ -3,7 +3,7 @@ import * as Accordion from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 import { forwardRef } from "react";
 
-function JournalView({ list }) {
+function JournalView({list}) {
   const AccordionTrigger = forwardRef(
     ({ children, className, ...props }, forwardedRef) => (
       <Accordion.Header className="AccordionHeader">
