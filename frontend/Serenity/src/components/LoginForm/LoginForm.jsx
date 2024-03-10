@@ -52,6 +52,7 @@ const LoginForm = ({ isExpanded, setLoginExpanded, setRegisterExpanded }) => {
         navigateToApp();
         console.log(response.data.body.token);
         localStorage.setItem('token', response.data.body.token);
+        localStorage.setItem('email', response.data.body.email);
       } else {
         setErrorMsg('Authentication failed');
       }

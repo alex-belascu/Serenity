@@ -3,19 +3,20 @@ import React, { useEffect, useRef } from 'react';
 import Lottie from 'react-lottie';
 import Indicator from '../../assets/animation.json';
 import './lottieAnimation.css';
-
+import axios from 'axios';
 // eslint-disable-next-line react/prop-types
 const LottieAnimation = ({
   isPlaying,
   setIsPlaying,
   selectedExerciseValue,
-  durationRounds,
-  setDurationRounds,
   selectedExercise,
   setExercise,
+  stresslevel,
 }) => {
   const [timer, setTimer] = React.useState(0);
   const lottieRef = useRef(null);
+  const email = localStorage.getItem('email');
+
   const defaultOptions = {
     loop: true,
     autoplay: false, // Set autoplay to false initially
@@ -23,6 +24,14 @@ const LottieAnimation = ({
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
+  };
+
+  const postExerciseData = async (seconds) => {
+    await axios.post('http://localhost:8080/exercise/addExerciseDataPerUser', {
+      email: email,
+      stressLevel: stresslevel,
+      seconds: seconds,
+    });
   };
 
   useEffect(() => {
@@ -41,7 +50,7 @@ const LottieAnimation = ({
         console.log(selectedExercise);
         if (selectedExercise === 'better sleep') {
           console.log(selectedExercise);
-          if (timer !== 240) {
+          if (timer !== 10) {
             setTimer(timer + 1);
           }
         }
@@ -56,18 +65,21 @@ const LottieAnimation = ({
           }
         }
 
-        if (selectedExercise === 'better sleep' && timer === 240) {
+        if (selectedExercise === 'better sleep' && timer === 10) {
           console.log(selectedExercise);
           setExercise('completed');
           console.log(selectedExercise);
           setIsPlaying(false);
           setExercise('completed');
           setTimer(0);
+          postExerciseData(240);
         }
 
         if (selectedExercise === 'relieve stress' && timer === 360) {
           setIsPlaying(false);
           setExercise('completed');
+          setTimer(0);
+          postExerciseData(360);
         }
       }, 1000); // 1000 milliseconds = 1 second
 
