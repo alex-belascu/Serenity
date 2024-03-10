@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "./AppPage.css";
 import { Text, Card, Inset } from "@radix-ui/themes";
 import { useNavigate } from "react-router-dom";
-import { Button, Dialog, Table, Flex } from "@radix-ui/themes";
+import { Button, Dialog, Flex } from "@radix-ui/themes";
 import JournalView from "../../components/JournalView/JournalView.jsx";
 import JournalEntry from "../../components/JournalEntry/JournalEntry.jsx";
-import { Chart } from 'react-google-charts';
+import Chart from 'react-google-charts';
+
 
 function AppPage() {
   const navigate = useNavigate();
