@@ -45,7 +45,7 @@ function AppPage() {
         }
       );
 
-      console.log(response.data); // Log response data if needed
+      console.log(response.data.body); // Log response data if needed
       setAllJournals(response.data.body);
     } catch (error) {
       console.error('Error posting journal entry:', error);
@@ -263,7 +263,6 @@ function AppPage() {
                   className="AccordionItem"
                   key={index}
                 >
-                  {item.text && (
                     <AccordionTrigger>
                       <div className="accordion-item-header">
                         <span className="accordion-item-title">
@@ -273,7 +272,6 @@ function AppPage() {
                         </span>
                       </div>
                     </AccordionTrigger>
-                  )}
                   <AccordionContent>{item.text}</AccordionContent>
                 </Accordion.Item>
               ))}
