@@ -56,7 +56,7 @@ const LottieAnimation = ({
         console.log(selectedExercise);
         if (selectedExercise === 'better sleep') {
           console.log(selectedExercise);
-          if (timer !== 10) {
+          if (timer !== 240) {
             setTimer(timer + 1);
           }
         }
@@ -71,7 +71,7 @@ const LottieAnimation = ({
           }
         }
 
-        if (selectedExercise === 'better sleep' && timer === 10) {
+        if (selectedExercise === 'better sleep' && timer === 240) {
           console.log(selectedExercise);
           setExercise('completed');
           console.log(selectedExercise);
