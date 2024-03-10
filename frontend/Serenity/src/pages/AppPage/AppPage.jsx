@@ -159,25 +159,6 @@ function AppPage() {
             </Flex>
           </Dialog.Content>
         </Dialog.Root>
-        <div className="app-card">
-          <Card variant="classic">
-            <Inset clip="padding-box" side="top" pb="current">
-              <img
-                src="https://images.pexels.com/photos/5038897/pexels-photo-5038897.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                alt="Bold typography"
-                style={{
-                  display: 'block',
-                  objectFit: 'cover',
-                  width: '100%',
-                  height: 160,
-                }}
-              />
-            </Inset>
-            <Text as="p" size="3">
-              Relax Your Muscles
-            </Text>
-          </Card>
-        </div>
       </div>
       <div className="logout">
         <Button color="teal" size={'3'} onClick={navigateToHomepage}>
