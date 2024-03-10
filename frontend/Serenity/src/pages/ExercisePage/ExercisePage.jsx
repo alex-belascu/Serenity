@@ -104,10 +104,11 @@ const ExercisePage = () => {
                 height: '50px',
                 position: 'absolute',
                 top: '75%',
-                left: '52%',
+                left: '57%',
                 margin: 'auto',
                 cursor: 'pointer',
                 zIndex: 30,
+                paddingLeft: '20px',
               }}
               fill="#333"
             />
@@ -138,7 +139,7 @@ const ExercisePage = () => {
                 left: '49%',
                 margin: 'auto',
                 cursor: 'pointer',
-                zIndex: 30,
+                zIndex: 30,               
               }}
               onClick={handleStartClick}
               fill="#333"
@@ -153,10 +154,11 @@ const ExercisePage = () => {
                 height: '50px',
                 position: 'absolute',
                 top: '75%',
-                left: '46%',
+                left: '40%',
                 margin: 'auto',
                 cursor: 'pointer',
                 zIndex: 30,
+                paddingRight: '50px',
               }}
               fill="#333"
               onClick={() => {
@@ -172,10 +174,11 @@ const ExercisePage = () => {
                 height: '50px',
                 position: 'absolute',
                 top: '75%',
-                left: '46%',
+                left: '39%',
                 margin: 'auto',
                 cursor: 'pointer',
                 zIndex: 30,
+                paddingRight: '50px',
               }}
               fill="#333"
               onClick={() => {

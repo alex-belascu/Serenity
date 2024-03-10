@@ -55,5 +55,20 @@
     text-align: center;
     color: white;
     overflow: hidden;
+    padding: 20px; /* Added padding for better spacing */
   }
-}
+
+    .background-video {
+      height: 50vh; /* Adjusted height for smaller screen */
+      width: 100%; /* Adjusted width for full-width on mobile */
+    }
+  
+    .navigatebtn {
+      position: relative; /* Changed position to relative */
+      top: 40%; /* Removed top positioning */
+      left: 25%; /* Removed left positioning */
+      transform: translate(-50%, -50%); /* Removed transform */
+      margin-top: 25px; /* Added margin for spacing */
+    }
+  }
+
