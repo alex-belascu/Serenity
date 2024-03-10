@@ -15,18 +15,16 @@ import java.time.LocalDateTime;
 @Table(name = "journals")
 @ToString
 @Data
-
 public class JournalModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(columnDefinition = "TEXT")
+
+    @Lob
     private String text;
 
+    private String email;
     private Timestamp timestamp;
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private UserModel user;
 
     @PrePersist
     private void onInsert() {

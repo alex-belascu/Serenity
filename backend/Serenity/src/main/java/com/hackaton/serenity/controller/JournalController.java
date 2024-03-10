@@ -11,10 +11,7 @@ import com.hackaton.serenity.service.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.webresources.JarWarResource;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -26,14 +23,34 @@ public class JournalController {
     private final JournalService journalService;
     private final AuthService authService;
 
-    @PostMapping(path = "/save")
+    @PostMapping(path = "/saveJournalPerUser")
     public ResponseEntity<?> save(@RequestBody JournalDTO journalDTO) {
-        Optional<UserModel> userOptional = authService.getUser();
+        Optional<UserModel> userOptional = authService.checkIfUserExists(journalDTO.getEmail());
         if (userOptional.isPresent()) {
-            journalDTO.setUserId(userOptional.get().getId());
+            journalDTO.setEmail(userOptional.get().getEmail());
             return ResponseEntity.ok(journalService.save(journalDTO));
         }
 
-        return ResponseEntity.badRequest().build();
+        return ResponseEntity.badRequest().body("Invalid User!");
+    }
+
+    @GetMapping(path = "/getAllJournalsPerUser")
+    public ResponseEntity<?> getJournals(@RequestParam String email) {
+        Optional<UserModel> userOptional = authService.checkIfUserExists(email);
+        if (userOptional.isPresent()) {
+            return ResponseEntity.ok(journalService.getJournalData(email));
+        }
+
+        return ResponseEntity.badRequest().body("Invalid User!");
+    }
+
+    @GetMapping(path = "/getSpecificJournalPerUser")
+    public ResponseEntity<?> getSpecificJournal(@RequestParam Long id, @RequestParam String email) {
+        Optional<UserModel> userOptional = authService.checkIfUserExists(email);
+        if (userOptional.isPresent()) {
+            return ResponseEntity.ok(journalService.getSpecificJournalData(id, email));
+        }
+
+        return ResponseEntity.badRequest().body("Invalid User!");
     }
 }

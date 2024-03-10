@@ -20,7 +20,6 @@ public class ExerciseDataService {
     private final ExerciseDataRepository exerciseDataRepository;
 
     public ResponseEntity<?> saveExerciseData(ExerciseDataAddRequestModel exerciseData) {
-        System.out.println("IN SAVE FUNC");
         var seconds = exerciseData.getSeconds();
         var date = exerciseData.getDate();
         var email = exerciseData.getEmail();
@@ -48,6 +47,7 @@ public class ExerciseDataService {
         int existingTime = existingDataToUpdate.getSeconds();
         int existingStressTrackCount = existingDataToUpdate.getStressTrackCount();
         int existingAverageStressLevel = existingDataToUpdate.getAverageStressLevel();
+
         existingDataToUpdate.setSeconds(existingTime + seconds);
         existingDataToUpdate.setStressTrackCount(existingStressTrackCount + 1);
         existingDataToUpdate.setAverageStressLevel(

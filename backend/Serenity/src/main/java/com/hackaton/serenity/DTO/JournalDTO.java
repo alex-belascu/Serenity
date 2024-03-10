@@ -1,12 +1,13 @@
 package com.hackaton.serenity.DTO;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import jakarta.persistence.Lob;
+import lombok.*;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class JournalDTO {
     private String text;
-    private long userId;
+    private String email;
 }

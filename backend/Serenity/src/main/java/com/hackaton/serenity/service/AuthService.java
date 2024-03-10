@@ -64,6 +64,10 @@ public class AuthService {
         }
     }
 
+    public Optional<UserModel> checkIfUserExists(String email) {
+        return repository.findByEmail(email);
+    }
+
     public Optional<UserModel> getUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
