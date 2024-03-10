@@ -1,35 +1,35 @@
-import React from "react";
-import "./AppPage.css";
-import { Text, Card, Inset } from "@radix-ui/themes";
-import { useNavigate } from "react-router-dom";
-import { Button, Dialog, Table, Flex } from "@radix-ui/themes";
-import JournalView from "../../components/JournalView/JournalView.jsx";
-import JournalEntry from "../../components/JournalEntry/JournalEntry.jsx";
+import React from 'react';
+import './AppPage.css';
+import { Text, Card, Inset } from '@radix-ui/themes';
+import { useNavigate } from 'react-router-dom';
+import { Button, Dialog, Table, Flex } from '@radix-ui/themes';
+import JournalView from '../../components/JournalView/JournalView.jsx';
+import JournalEntry from '../../components/JournalEntry/JournalEntry.jsx';
 
 function AppPage() {
   const navigate = useNavigate();
 
   const itemList = [
     {
-      title: "Journal 1",
-      date: "01/01/2022",
+      title: 'Journal 1',
+      date: '01/01/2022',
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     },
     {
-      title: "Journal 2",
-      date: "02/01/2022",
+      title: 'Journal 2',
+      date: '02/01/2022',
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     },
   ];
 
   const navigateToHomepage = () => {
-    navigate("/");
+    navigate('/');
   };
 
   const navigateToExercise = () => {
-    navigate("/exercise");
+    navigate('/exercise');
   };
 
   return (
@@ -47,11 +47,11 @@ function AppPage() {
                 src="https://images.unsplash.com/photo-1465409042654-5314e9d1754b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Bold typography"
                 style={{
-                  display: "block",
-                  objectFit: "cover",
-                  width: "100%",
+                  display: 'block',
+                  objectFit: 'cover',
+                  width: '100%',
                   height: 160,
-                  objectPosition: "center",
+                  objectPosition: 'center',
                 }}
                 onClick={navigateToExercise}
               />
@@ -69,9 +69,9 @@ function AppPage() {
                 src="https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt="Bold typography"
                 style={{
-                  display: "block",
-                  objectFit: "cover",
-                  width: "100%",
+                  display: 'block',
+                  objectFit: 'cover',
+                  width: '100%',
                   height: 160,
                 }}
               />
@@ -91,9 +91,9 @@ function AppPage() {
                     src="https://images.pexels.com/photos/606541/pexels-photo-606541.jpeg?auto=compress&cs=tinysrgb&w=800"
                     alt="Bold typography"
                     style={{
-                      display: "block",
-                      objectFit: "cover",
-                      width: "100%",
+                      display: 'block',
+                      objectFit: 'cover',
+                      width: '100%',
                       height: 160,
                     }}
                   />
@@ -107,7 +107,7 @@ function AppPage() {
           <Dialog.Content>
             <Dialog.Title>New entry in journal...</Dialog.Title>
 
-            <JournalEntry/>
+            <JournalEntry />
 
             <Flex gap="3" mt="4" justify="end">
               <Dialog.Close>
@@ -132,9 +132,9 @@ function AppPage() {
                     src="https://images.pexels.com/photos/159866/books-book-pages-read-literature-159866.jpeg?auto=compress&cs=tinysrgb&w=800"
                     alt="Bold typography"
                     style={{
-                      display: "block",
-                      objectFit: "cover",
-                      width: "100%",
+                      display: 'block',
+                      objectFit: 'cover',
+                      width: '100%',
                       height: 160,
                     }}
                   />
@@ -166,9 +166,9 @@ function AppPage() {
                 src="https://images.pexels.com/photos/5038897/pexels-photo-5038897.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 alt="Bold typography"
                 style={{
-                  display: "block",
-                  objectFit: "cover",
-                  width: "100%",
+                  display: 'block',
+                  objectFit: 'cover',
+                  width: '100%',
                   height: 160,
                 }}
               />
@@ -180,7 +180,7 @@ function AppPage() {
         </div>
       </div>
       <div className="logout">
-        <Button color="teal" size={"3"} onClick={navigateToHomepage}>
+        <Button color="teal" size={'3'} onClick={navigateToHomepage}>
           Log out
         </Button>
       </div>

@@ -50,6 +50,8 @@ const LoginForm = ({ isExpanded, setLoginExpanded, setRegisterExpanded }) => {
 
       if (response.data.statusCodeValue === 200) {
         navigateToApp();
+        console.log(response.data.body.token);
+        localStorage.setItem('token', response.data.body.token);
       } else {
         setErrorMsg('Authentication failed');
       }
