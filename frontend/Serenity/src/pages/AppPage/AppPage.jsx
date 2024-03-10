@@ -94,9 +94,9 @@ function AppPage() {
             </Card>
           </div>
           <Dialog.Content>
-            <Dialog.Title>Create a chart here</Dialog.Title>
+            <Dialog.Title>Statistics</Dialog.Title>
               <div className="graph-wrapper">
-                {showChart && (
+                {(
                   <div style={{ display: 'flex', maxWidth: 900 }}>
                     <Chart
                         width={'500px'}
@@ -120,7 +120,7 @@ function AppPage() {
                 </div>
             )}
 
-                {showChart && (
+                {(
                   <div style={{ display: 'flex', maxWidth: 900 }}>
                     <Chart
                         width={'500px'}
